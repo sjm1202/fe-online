@@ -3,6 +3,7 @@ interface Org {
   id: string
   name: string
 }
+export type { Org };
 const getOrgData = (): Org[] => {
   const count = Math.floor(Math.random() * 20)
   return Array(count)

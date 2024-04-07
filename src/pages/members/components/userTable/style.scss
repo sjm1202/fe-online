@@ -1,0 +1,23 @@
+.user-table-wrap {
+  .search-bar {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.06);
+    width: 100%;
+    .split-line {
+      display: inline-block;
+      color: #ccc;
+      padding: 0 8px;
+    }
+    .no-border {
+      border: none !important;
+      .ant-select-selector {
+        border: none !important;
+      }
+    }
+  }
+  .table {
+    height: 100%;
+    overflow: auto;
+  }
+}

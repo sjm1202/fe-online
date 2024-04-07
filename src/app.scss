@@ -1,0 +1,17 @@
+.app-wrap {
+  height: 100%;
+  position: relative;
+  .app-header {
+    height: 46px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .app-body {
+    height: 100%;
+    overflow: hidden;
+    padding-top:46px;
+    position: relative;
+  }
+}

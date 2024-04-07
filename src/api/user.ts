@@ -3,6 +3,7 @@ interface User {
   id: string
   name: string
 }
+export type { User };
 const getUserData = (): User[] => {
   const count = Math.floor(Math.random() * 20)
   return Array(count)
