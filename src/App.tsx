@@ -1,53 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import type { MenuProps } from 'antd';
-import { Menu } from 'antd';
-import './app.scss';
-import { Navigate, Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import Menbers from './pages/members';
-import Teams from './pages/teams';
-import Jobs from './pages/jobs';
+import { Input, Form } from 'antd';
+import SubmitBtn from './components/submitBtn';
+interface FieldType {
+  username: string;
+  sex: string;
+}
 const App: React.FC = () => {
-  const navigate = useNavigate();
-  let location = useLocation();
-  const [navItems, setNavItems ] = useState<MenuProps['items']>([
-    {
-      label: '成员管理',
-      key: '/menbers',
-    },
-    {
-      label: '团队管理',
-      key: '/teams',
-    },
-    {
-      label: '职位维护',
-      key: '/jobs',
-    },
-  ])
-  const [current, setCurrent] = useState('/');
-  const handleNavItemClick: MenuProps['onClick'] = e => {
-    navigate(e.key)
-  };
-  useEffect(() => {
-    setCurrent(location.pathname)
-  }, [location.pathname])
+  const handleSubmit = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(1);
+      },4000)
+    })
+  }
   return (
     <div className='app-wrap'>
-      <div className='app-header'>
-        <Menu 
-          onClick={handleNavItemClick}
-          selectedKeys={[current]}
-          mode="horizontal"
-          items={navItems} 
-        />
-      </div>
-      <div className='app-body'>
-      <Routes>
-        <Route path="menbers" element={<Menbers />} />
-        <Route path="teams" element={<Teams />} />
-        <Route path="jobs" element={<Jobs />} />
-        <Route path="*" element={<Navigate to='menbers' />} />
-      </Routes>
-      </div>
+      <Form layout="inline">
+        <Form.Item<FieldType>
+          name="username"
+          rules={[{ required: true, message: 'Please input your username!' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item<FieldType>
+          name="sex"
+          rules={[{ required: true, message: 'Please input your username!' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item<FieldType>
+        >
+          <SubmitBtn isConfirm onSubmit={handleSubmit}>test</SubmitBtn>
+          <SubmitBtn onSubmit={handleSubmit}>test</SubmitBtn>
+        </Form.Item>
+      </Form>
     </div>
   )
 }
