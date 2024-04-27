@@ -1,0 +1,33 @@
+.jim_description_table_wrap {
+  width: 100%;
+  border: 1px solid #EBEBEB;
+  border-radius: 8px;
+  .jim_description_table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    &>tr {
+      border-bottom: 1px solid #EBEBEB;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    &>tr>td {
+      border-right: 1px solid #EBEBEB;
+      padding: 8px;
+      line-height: 22px;
+      &:last-child {
+        border-right: none;
+      }
+      vertical-align: top;
+    }
+    &>tr>th {
+      border-right: 1px solid #EBEBEB;
+      padding: 8px;
+      line-height: 22px;
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
